@@ -80,7 +80,7 @@ const Layout = () => {
 	}
 	return (
 		<>
-			<header className='w-[100%] sticky top-0 px-[10px] md:px-[10%] flex justify-between py-[10px] md:py-[20px]'>
+			<header className='w-[100%] bg-white sticky top-0 px-[10px] md:px-[10%] flex justify-between py-[10px] md:py-[20px]'>
 				<div className='flex items-center gap-[14px] md:gap-[40px]'>
 					<Link to={'/'}>
 						<img
