@@ -112,7 +112,9 @@ const Layout = () => {
 							8-800-550-01-09
 						</p>
 					</Link>
-					<img src={card} className='md:inline hidden' alt='' />
+					<Link to={'/card'}>
+					  <img src={card} className='md:inline hidden' alt='' />
+					</Link>
 				</div>
 			</header>
 			<nav className='w-[100%] bg-[#EDEDED] px-[10px] md:px-[10%] flex justify-between py-[10px]'>
@@ -135,13 +137,7 @@ const Layout = () => {
 				<div className='hidden md:flex items-center gap-[10px]'>
 					<img src='src/pages/layout/vector1.svg' alt='' />
 					<p className='text-[#1E2126]  font-[400]'>Иркутск</p>
-					<Cascader
-						size='middle'
-						style={{ width: '35px', border: 'none' }}
-						options={options}
-						expandTrigger='hover'
-						onChange={onChange}
-					/>
+					<Cascader	size='middle'	style={{ width: '35px', border: 'none' }}	options={options}	expandTrigger='hover'	onChange={onChange}/>
 				</div>
 			</nav>
 			<main>
