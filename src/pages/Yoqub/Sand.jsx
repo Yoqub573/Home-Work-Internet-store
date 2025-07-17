@@ -1,5 +1,5 @@
 import React from 'react'
-
+ 
 const Sand = () => {
 	return (
 		<section className='px-[10px] md:px-[10%] py-[10px] md:py-[30px] '>
@@ -29,7 +29,7 @@ const Sand = () => {
 					</button>
 				</div>
 			</div>
-			<br />
+			<br /> 
 			<br />
 			<div className='flex flex-col md:flex-row gap-[60px] md:gap-[140px]'>
 				<div className='flex flex-col w-[100%] md:w-[50%] gap-[30px]'>
