@@ -7,7 +7,6 @@ import phone from './Vector.svg'
 import card from './Group 10.svg'
 import fullStops from './Group 61.svg'
 import Search from './Group 34.svg'
-import MapPoin from './vector1.svg'
 import img1 from './Vector (2).svg'
 import img2 from './Vector (3).svg'
 import img3 from './Group 78.svg'
@@ -134,7 +133,7 @@ const Layout = () => {
 					</button>
 				</div>
 				<div className='hidden md:flex items-center gap-[10px]'>
-					<img src={MapPoin} alt='' />
+					<img src='src/pages/layout/vector1.svg' alt='' />
 					<p className='text-[#1E2126]  font-[400]'>Иркутск</p>
 					<Cascader
 						size='middle'
@@ -145,9 +144,9 @@ const Layout = () => {
 					/>
 				</div>
 			</nav>
-			<MapPoin>
+			<main>
 				<Outlet />
-			</MapPoin>
+			</main>
 			<footer className='bg-[#1E2126] gap-[40px] px-[10%] py-[100px] flex flex-col md:flex-row justify-between'>
 				<div className='h-[273px] flex flex-col justify-between'>
 					<img src={logo2} alt='' />
