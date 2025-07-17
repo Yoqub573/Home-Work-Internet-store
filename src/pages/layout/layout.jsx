@@ -146,9 +146,9 @@ const Layout = () => {
 					/>
 				</div>
 			</nav>
-			<main>
+			<MapPoin>
 				<Outlet />
-			</main>
+			</MapPoin>
 			<footer className='bg-[#1E2126] gap-[40px] px-[10%] py-[100px] flex flex-col md:flex-row justify-between'>
 				<div className='h-[273px] flex flex-col justify-between'>
 					<img src={logo2} alt='' />
