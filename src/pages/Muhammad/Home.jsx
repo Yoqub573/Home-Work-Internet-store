@@ -15,11 +15,12 @@ import bori3 from './img/bori3.png'
 import bori4 from './img/bori4.png'
 import krishai1 from './img/krisha1.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUser, deleteUser, editUser } from './reducers/todolistSlice'
+import { addUser, deleteUser, editUser } from '../../reducers/todoListSlice'
 import { Button, Input, Modal } from 'antd'
 
+
 const Home = () => {
-  const data = useSelector((store) => store.todoSlice.data)
+  const data = useSelector(store => store.todolist.data)
   const dispatch = useDispatch()
 
   const [isModalOpen, setIsModalOpen] = useState(false)

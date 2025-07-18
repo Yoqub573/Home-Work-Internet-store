@@ -1,8 +1,104 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser, deleteUser, editUser } from '../../reducers/todoListSlice'
+import { Button, Input, Modal } from 'antd'
+import group73 from '../Muhammad/img/Group 73.png'
+import "../Muhammad/home.css"
 
 const About = () => {
+	const data = useSelector(store => store.todolist.data)
+	const dispatch = useDispatch()
+
+	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [addName, setAddName] = useState('')
+	const [addPrice, setAddPrice] = useState('')
+
+	const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+	const [editName, setEditName] = useState('')
+	const [editPrice, setEditPrice] = useState('')
+	const [editImg, setEditImg] = useState('')
+	const [idx, setIdx] = useState(null)
+
+	const showModal = () => setIsModalOpen(true)
+	const handleCancel = () => setIsModalOpen(false)
+	const handleEditCancel = () => setIsEditModalOpen(false)
+
+	function handleAdd() {
+		let newUser = {
+			name: addName,
+			price: addPrice,
+			img: krishai1,
+			id: Date.now(),
+		}
+		dispatch(addUser(newUser))
+		setIsModalOpen(false)
+		setAddName('')
+		setAddPrice('')
+	}
+
+	function getEditInfo(e) {
+		setIsEditModalOpen(true)
+		setEditName(e.name)
+		setEditPrice(e.price)
+		setEditImg(e.img)
+		setIdx(e.id)
+	}
+
+	function handleEdit() {
+		let update = {
+			name: editName,
+			price: editPrice,
+			img: editImg,
+			id: idx,
+		}
+		dispatch(editUser(update))
+		setEditName('')
+		setEditPrice('')
+		setIsEditModalOpen(false)
+	}
+
 	return (
 		<section className='px-[10px] md:px-[10%] py-[10px] md:py-[30px] '>
+			<Modal
+				title='Добавить товар'
+				open={isModalOpen}
+				onOk={handleAdd}
+				onCancel={handleCancel}
+				okText='Добавить'
+				cancelText='Отмена'
+			>
+				<Input
+					placeholder='Название'
+					value={addName}
+					onChange={e => setAddName(e.target.value)}
+					style={{ marginBottom: 10 }}
+				/>
+				<Input
+					placeholder='Цена'
+					value={addPrice}
+					onChange={e => setAddPrice(e.target.value)}
+				/>
+			</Modal>
+			<Modal
+				title='Редактировать товар'
+				open={isEditModalOpen}
+				onOk={handleEdit}
+				onCancel={handleEditCancel}
+				okText='Сохранить'
+				cancelText='Отмена'
+			>
+				<Input
+					placeholder='Название'
+					value={editName}
+					onChange={e => setEditName(e.target.value)}
+					style={{ marginBottom: 10 }}
+				/>
+				<Input
+					placeholder='Цена'
+					value={editPrice}
+					onChange={e => setEditPrice(e.target.value)}
+				/>
+			</Modal>
 			<div className='flex items-center gap-[10px]'>
 				<p className='text-[16px] font-[400] leading-[100%] text-[#707070]'>
 					Главная
@@ -21,7 +117,9 @@ const About = () => {
 			</h2>
 			<br />
 			<span className='text-[#707070] font-[500] text-[14px] md:text-[16px] leading-[20px]'>
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>1. ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					1. ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ
+				</span>
 				<br />
 				<br />
 				1.1. В настоящей Политике конфиденциальности используются следующие
@@ -43,7 +141,9 @@ const About = () => {
 				Общества.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>2. ОБЩИЕ ПОЛОЖЕНИЯ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					2. ОБЩИЕ ПОЛОЖЕНИЯ
+				</span>
 				<br />
 				<br />
 				2.1. Обработка и обеспечение безопасности персональных данных
@@ -67,7 +167,9 @@ const About = () => {
 				персональных данных, предоставляемых Пользователем сайта Общества.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>3. ПРЕДМЕТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					3. ПРЕДМЕТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ
+				</span>
 				<br />
 				<br />
 				3.1. Настоящая Политика конфиденциальности устанавливает обязательства
@@ -83,7 +185,9 @@ const About = () => {
 				3.2.4. адрес.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>4. ЦЕЛИ СБОРА ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					4. ЦЕЛИ СБОРА ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ
+				</span>
 				<br />
 				<br />
 				4.1. Персональные данные Пользователя Общество может использовать в
@@ -100,7 +204,9 @@ const About = () => {
 				данных, предоставленных Пользователем.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>5. СПОСОБЫ И СРОКИ ОБРАБОТКИ ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					5. СПОСОБЫ И СРОКИ ОБРАБОТКИ ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ
+				</span>
 				<br />
 				<br />
 				5.1. Обработка персональных данных Пользователя осуществляется без
@@ -123,7 +229,9 @@ const About = () => {
 				утратой или разглашением персональных данных Пользователя.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>6. ОБЯЗАТЕЛЬСТВА СТОРОН</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					6. ОБЯЗАТЕЛЬСТВА СТОРОН
+				</span>
 				<br />
 				<br />
 				6.1. Пользователь обязан: 6.1.1. Предоставить информацию о персональных
@@ -147,7 +255,9 @@ const About = () => {
 				недостоверных персональных данных или неправомерных действий.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>7. ОТВЕТСТВЕННОСТЬ СТОРОН</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					7. ОТВЕТСТВЕННОСТЬ СТОРОН
+				</span>
 				<br />
 				<br />
 				7.1. Общество, не исполнившее свои обязательства, несёт ответственность
@@ -162,7 +272,9 @@ const About = () => {
 				согласия Пользователя.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>8. РАЗРЕШЕНИЕ СПОРОВ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					8. РАЗРЕШЕНИЕ СПОРОВ
+				</span>
 				<br />
 				<br />
 				8.1. До обращения в суд с иском по спорам, возникающим из отношений
@@ -178,7 +290,9 @@ const About = () => {
 				Российской Федерации.
 				<br />
 				<br />
-        <span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>9. ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ</span>
+				<span className='text-[#1E2126] font-[700] text-[18px] md:text-[20px] leading-[20px]'>
+					9. ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ
+				</span>
 				<br />
 				<br />
 				9.1. Общество вправе вносить изменения в настоящую Политику
@@ -188,6 +302,37 @@ const About = () => {
 				конфиденциальности. 9.3. Действующая Политика конфиденциальности
 				размещена на сайте Общества.
 			</span>
+			<br />
+			<br />
+			<div className='karzinka-wrapper'>
+			{data.map(e => (
+				<div key={e.id} className='karzinka-card'>
+					<img src={e.img} alt={e.name} className='product-img' />
+					<div className='logo-wrapper'>
+						<img src={group73} alt='Group 73 logo' />
+					</div>
+					<p className='product-name'>{e.name}</p>
+					<p className='product-price'>{e.price}</p>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							marginTop: '10px',
+						}}
+					>
+						<Button
+							className='btn-delete'
+							onClick={() => dispatch(deleteUser(e.id))}
+						>
+							Удалить
+						</Button>
+						<Button className='btn-edit' onClick={() => getEditInfo(e)}>
+							Редактировать
+						</Button>
+					</div>
+				</div>
+			))}
+			</div>
 		</section>
 	)
 }
