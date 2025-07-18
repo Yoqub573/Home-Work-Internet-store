@@ -7,8 +7,6 @@ import phone from './Vector.svg'
 import card from './Group 10.svg'
 import fullStops from './Group 61.svg'
 import Search from './Group 34.svg'
-import MapPoin from './Vector (1).svg'
-import drop from './Arrow 1.svg'
 import img1 from './Vector (2).svg'
 import img2 from './Vector (3).svg'
 import img3 from './Group 78.svg'
@@ -82,7 +80,7 @@ const Layout = () => {
 	}
 	return (
 		<>
-			<header className='w-[100%] sticky top-0 px-[10px] md:px-[10%] flex justify-between py-[10px] md:py-[20px]'>
+			<header className='w-[100%] bg-white sticky top-0 px-[10px] md:px-[10%] flex justify-between py-[10px] md:py-[20px]'>
 				<div className='flex items-center gap-[14px] md:gap-[40px]'>
 					<Link to={'/'}>
 						<img
@@ -114,7 +112,9 @@ const Layout = () => {
 							8-800-550-01-09
 						</p>
 					</Link>
-					<img src={card} className='md:inline hidden' alt='' />
+					<Link to={'/card'}>
+					  <img src={card} className='md:inline hidden' alt='' />
+					</Link>
 				</div>
 			</header>
 			<nav className='w-[100%] bg-[#EDEDED] px-[10px] md:px-[10%] flex justify-between py-[10px]'>
@@ -135,15 +135,9 @@ const Layout = () => {
 					</button>
 				</div>
 				<div className='hidden md:flex items-center gap-[10px]'>
-					<img src={MapPoin} alt='' />
+					<img src='src/pages/layout/vector1.svg' alt='' />
 					<p className='text-[#1E2126]  font-[400]'>Иркутск</p>
-					<Cascader
-						size='middle'
-						style={{ width: '35px', border: 'none' }}
-						options={options}
-						expandTrigger='hover'
-						onChange={onChange}
-					/>
+					<Cascader	size='middle'	style={{ width: '35px', border: 'none' }}	options={options}	expandTrigger='hover'	onChange={onChange}/>
 				</div>
 			</nav>
 			<main>
