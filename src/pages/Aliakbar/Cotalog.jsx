@@ -44,7 +44,7 @@ const Cotalog = () => {
 	}
 
 	return (
-		<div>
+		<div className='px-[10%] py-[30px]'>
 			<h1 className='text-[50px] text-center lg:text-start'>
 				Базальтовая вата
 			</h1>
@@ -54,11 +54,13 @@ const Cotalog = () => {
 					<input
 						type='text'
 						value={addName}
+						className='border border-gray-300'
 						onChange={e => setAddName(e.target.value)}
 					/>
 					<input
 						type='text'
 						value={addPrice}
+						className='border border-gray-300'
 						onChange={e => setAddPrice(e.target.value)}
 					/>
 					<button onClick={add}>Add</button>
@@ -68,11 +70,13 @@ const Cotalog = () => {
 					<input
 						type='text'
 						value={editName}
+						className='border border-gray-300'
 						onChange={e => setEditName(e.target.value)}
 					/>
 					<input
 						type='text'
 						value={editPrice}
+						className='border border-gray-300'
 						onChange={e => setEditPrice(e.target.value)}
 					/>
 					<button onClick={edit}>Save</button>
