@@ -13,9 +13,13 @@ import Sand from './pages/Yoqub/Sand'
 
 const App = () => {
   const router = createBrowserRouter([
+
+
     {
       path:'/',
       element:<Layout/>,
+
+      
       children:[
         {
           index:true,
